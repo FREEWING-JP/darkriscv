@@ -1,0 +1,52 @@
+# Alinx AX309 XC6SLX16 FTG256
+# ALINX AX309 clone Xilinx Spartan-6 XC6SLX16 (This is AX309 clone So it not XC6SLX9)
+#  Copyright (c) 2022 FREE WING,Y.Sakamoto
+# All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+# 
+# * Redistributions of source code must retain the above copyright notice, this
+#   list of conditions and the following disclaimer.
+# 
+# * Redistributions in binary form must reproduce the above copyright notice,
+#   this list of conditions and the following disclaimer in the documentation
+#   and/or other materials provided with the distribution.
+# 
+# * Neither the name of the copyright holder nor the names of its
+#   contributors may be used to endorse or promote products derived from
+#   this software without specific prior written permission.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+
+NET "XCLK" LOC = T8 | TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 50000 kHz;
+
+## RESETn
+NET XRES               LOC = L3 | IOSTANDARD = "LVCMOS33";  ## reset pushbutton
+##
+
+######## LED Pin define ########
+NET LED<0>             LOC = P4 | IOSTANDARD = "LVCMOS33";       ## LED1
+NET LED<1>             LOC = N5 | IOSTANDARD = "LVCMOS33";       ## LED2
+NET LED<2>             LOC = P5 | IOSTANDARD = "LVCMOS33";       ## LED3
+NET LED<3>             LOC = M6 | IOSTANDARD = "LVCMOS33";       ## LED4
+
+######## USB Serial RS232 Pin define ########
+NET UART_RXD          LOC = C11 | IOSTANDARD = "LVCMOS33";  ## Uart RXD:U4_TXD
+NET UART_TXD          LOC = D12 | IOSTANDARD = "LVCMOS33";  ## Uart TXD:U4_RXD
+
+NET DEBUG[3]        LOC = A8  | IOSTANDARD = LVCMOS33; # P23 -> J2-40 -> L14
+NET DEBUG[2]        LOC = A9  | IOSTANDARD = LVCMOS33; # P24 -> J2-39 -> L16
+NET DEBUG[1]        LOC = B10 | IOSTANDARD = LVCMOS33; # N21 -> J2-38 -> K16
+NET DEBUG[0]        LOC = A12 | IOSTANDARD = LVCMOS33; # N22 -> J2-37 -> K15
+
